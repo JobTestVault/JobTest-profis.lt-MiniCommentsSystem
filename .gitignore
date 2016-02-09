@@ -1,0 +1,4 @@
+/www/vendor/
+.vagrant
+nbproject/
+www/composer.lock

@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="{{ url('homepage') }}/apple-touch-icon.png">
+
+        <link rel="stylesheet" href="{{ url('homepage') }}/css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="{{ url('homepage') }}/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{{ url('homepage') }}/css/main.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+
+        <script src="{{ url('homepage') }}/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{ url('homepage') }}">Comments test</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" data-redirect-url="{{ url('admin') }}" data-role="login" action="{{ url('admin_login') }}" method="post">
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">        
+        
+        <div class="row" data-role="messages">
+            
+        </div>
+        
+        <div class="row">
+            <form method="post" data-role="limit-save" action="{{ url('set_comments_limit', {current_page: current_page}) }}"><h3>Comments [<input type="number" min="5" max="2000" required role="limit_change" name="limit" class="small noborder text-center" value="{{ comments_count }}" />]</h3></form>
+            <div class="comments">
+                {% if comments %}      
+                    {% for comment in comments %}
+                        {% include 'comment.twig' with {comment: comment} %}
+                    {% endfor %}                    
+                {% else %}
+                    {% include 'nocomments.twig' %}
+                {% endif %}                
+            </div>
+            {% include 'pagination.twig' with {pages: pages, current_page: current_page} %}
+        </div>
+        
+        <div class="row">
+            <h3>Leave a comment</h3>
+            <form method="post" action="{{ url('comment') }}" data-role="comment_submit">
+                <div class="form-group">
+                    <label for="user_email">Email address</label>
+                    <input type="email" name="email" class="form-control" id="user_email" placeholder="Write here your email">
+                    <div data-role="error" data-for="email" class="text-danger hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="user_name">Name</label>
+                    <input type="text" name="name" class="form-control" id="user_name" placeholder="Write here your name">
+                    <div data-role="error" data-for="name" class="text-danger hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="user_comment">Comment</label>
+                    <textarea rows="5" name="comment" class="form-control" id="user_name" placeholder="Write here your comment"></textarea>
+                    <div data-role="error" data-for="comment" class="text-danger hidden"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Submit your comment</button>
+                </div>
+            </form>
+        </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; MekDrop 2016</p>
+      </footer>
+    </div> <!-- /container -->        
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>    
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="{{ url('homepage') }}/js/vendor/bootstrap.min.js"></script>
+
+        <script src="{{ url('homepage') }}/js/main.js"></script>
+    </body>
+</html>

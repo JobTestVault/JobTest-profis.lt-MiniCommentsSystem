@@ -1,0 +1,9 @@
+<div class="comment row">
+    <div class="col-md-1">
+        <img src="http://www.gravatar.com/avatar/{{ comment.getGravatarHash() }}?s=64" alt="{{ comment.name }} gravatar" class="img img-responsive center-block" />
+    </div>
+    <div class="col-md-11">
+        <div class="text-info small"><strong>{{ comment.name }}</strong> wrote comment on {{ comment.created_at }}:</div>
+        <p>{{ comment.comment }}</p>
+    </div>
+</div>

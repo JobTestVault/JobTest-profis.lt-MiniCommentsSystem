@@ -1,0 +1,10 @@
+<div class="pages{% if pages < 2 %} hidden{% endif %}">
+    <hr />
+Page: 
+{% for page in 1..pages %}    
+    {% if not loop.first %}, {% endif %}
+    {% if current_page == page %} [ {% endif %}
+    <a href="{{ url('page', {current_page: page}) }}">{{ page }}</a>
+    {% if current_page == page %} ] {% endif %}
+{% endfor %}
+</div>

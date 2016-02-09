@@ -1,0 +1,16 @@
+.comment+.comment {
+	margin-top: 1em;
+}
+
+.noborder {
+	border-style: none;
+}
+
+input[role="limit_change"] {
+	height: 1.2em;
+}
+
+#navbar label {
+	color: white;
+	padding-right: 1em;
+}

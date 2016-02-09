@@ -1,0 +1,16 @@
+{
+    "require": {
+        "silex/silex": "1.*",
+        "igorw/config-service-provider": "^1.2",
+        "twig/twig": "^1.24",
+        "symfony/twig-bridge": "^3.0",
+        "symfony/debug": "2.8",
+        "herrera-io/silex-pdo": "1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "controller/",
+            "models/"
+        ]
+    }
+}
