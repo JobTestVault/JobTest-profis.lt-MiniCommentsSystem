@@ -2,6 +2,8 @@
 
 Mini comments website as test for applying job at profis.lt
 
+<img width="640" height="400" title="" alt="" src="https://raw.githubusercontent.com/MekDrop/profis-testas/master/screenshot.png" />
+
 # How to run it?
 
 You can clone this repository and in your command line write `vagrant up` (for this command to work you need have [vagrant](https://www.vagrantup.com/downloads.html) and [virtualbox](https://www.virtualbox.org) installed on your local system). Wait few minutes until virtual box boots and than you can type in your browser `http://localhost:8080`.
