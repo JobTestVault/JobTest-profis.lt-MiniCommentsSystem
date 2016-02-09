@@ -10,5 +10,5 @@ If you want to use this code without vagrant you will need configure your webser
 
 # Login data
 
-*Login:* admin@admin.org<br />
-*Pass:* admin
+*Login:* `admin@admin.org`<br />
+*Pass:* `admin`
