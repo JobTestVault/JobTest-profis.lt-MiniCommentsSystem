@@ -32,7 +32,7 @@ class IndexController  implements ControllerProviderInterface
 		$limit = (int)$_POST['limit'];
 						
 		$count = $app['pdo']->query('SELECT COUNT(*) FROM `'.Comment::getTable(). '`')->fetchColumn(); 
-		$pages = round($count / $limit);		
+		$pages = ceil($count / $limit);		
 		
 		$offset = (($current_page -1 )*$limit);
 		if ($offset >= $count) {
@@ -72,7 +72,7 @@ class IndexController  implements ControllerProviderInterface
 		}
 		
 		$count = $app['pdo']->query('SELECT COUNT(*) FROM `'.Comment::getTable(). '`')->fetchColumn(); 
-		$pages = round($count / $comments_count);
+		$pages = ceil($count / $comments_count);
 		
 		$offset = (($current_page -1 )*$comments_count);
 		if ($offset >= $count) {

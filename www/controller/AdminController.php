@@ -83,7 +83,7 @@ class AdminController implements ControllerProviderInterface
 		}
 		
 		$count = $app['pdo']->query('SELECT COUNT(*) FROM `'.Comment::getTable(). '`')->fetchColumn(); 
-		$pages = round($count / $comments_count);
+		$pages = ceil($count / $comments_count);
 		
 		$offset = (($current_page -1 )*$comments_count);
 		if ($offset >= $count) {
