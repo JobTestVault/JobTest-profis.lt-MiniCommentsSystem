@@ -14,16 +14,18 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "www", "/var/www/html"
 
   config.vm.provision "shell", inline: <<-SHELL	 
-     sudo apt-get update
-	 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -q --force-yes upgrade
-     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q --force-yes apache2 mysql-server php5 mc php5-json php5-memcached curl memcached php5-mysql
-     sudo curl -sS https://getcomposer.org/installer | php
-     sudo mv composer.phar /usr/local/bin/composer
-	 sudo a2enmod rewrite
-	 sudo rm -rf /etc/apache2/sites-available/000-default.conf
-	 sudo cp /vagrant/000-default.conf /etc/apache2/sites-available/000-default.conf
-	 sudo service apache2 restart
-	 sudo mysql < /vagrant/structure.sql
+	sudo apt-get update
+	sudo DEBIAN_FRONTEND=noninteractive apt-get -y -q --force-yes upgrade
+	sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q --force-yes apache2 mysql-server php5 mc php5-json php5-memcached curl memcached php5-mysql
+	sudo curl -sS https://getcomposer.org/installer | php
+	sudo mv composer.phar /usr/local/bin/composer
+	sudo a2enmod rewrite
+	sudo rm -rf /etc/apache2/sites-available/000-default.conf
+	sudo cp /vagrant/000-default.conf /etc/apache2/sites-available/000-default.conf
+	sudo service apache2 restart
+	sudo mysql < /vagrant/structure.sql
+	cd /var/www/html
+	composer update
   SHELL
 
 end
