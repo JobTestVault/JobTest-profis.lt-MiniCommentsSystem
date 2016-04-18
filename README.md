@@ -1,3 +1,4 @@
+[![License](https://img.shields.io/github/license/MekDrop/JobTest-profis.lt-MiniCommentsSystem.svg?maxAge=2592000)](License.txt) ![GitHub release](https://img.shields.io/github/release/MekDrop/JobTest-profis.lt-MiniCommentsSystem.svg?maxAge=2592000)
 # profis-testas
 
 Mini comments website as test for applying job at profis.lt
